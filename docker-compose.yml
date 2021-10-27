@@ -1,0 +1,14 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./docker/app/Dockerfile
+    command: npm run start
+    volumes:
+      - ./:/projects/nft-converter
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    ports:
+      - 12340:3000
+    tty: true
