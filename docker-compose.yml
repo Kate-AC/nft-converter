@@ -5,6 +5,7 @@ services:
       context: .
       dockerfile: ./docker/app/Dockerfile
     command: npm run start
+    env_file: ./.env
     volumes:
       - ./:/projects/nft-converter
     environment:

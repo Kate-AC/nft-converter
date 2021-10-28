@@ -16,6 +16,10 @@ const UploadFormStyled = styled.div`
     &__thumb {
       max-width: 300px;
       margin-bottom: 10px;
+
+      img {
+        width: 100%;
+      }
     }
 
     &__item {
@@ -62,7 +66,7 @@ const UploadForm = () => {
             <input
               onChange={fileSelectEvent}
               type='file'
-              enctype='multipart/form-data'
+              encType='multipart/form-data'
             />
           </div>
           <div className='upload-form__thumb'>

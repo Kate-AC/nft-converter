@@ -19,7 +19,7 @@ const MetaMaskStyled = styled.div.attrs(props => ({
       label {
         margin-right: 10px;
       }
-    }    
+    }
   }
 `;
 
@@ -27,11 +27,12 @@ const MetaMask = () => {
   const {address, setAddress} = useContext(MetaMaskContext);
 
   useEffect(() => {
-    if (!window.ethereum.enable()) return;
+    if (window.ethereum === undefined) return;
 
     const web3 = new Web3(window.ethereum);
     (async () => {
-      setAddress(await web3.eth.getAccounts());
+      const addressList = await window.ethereum.enable();
+      setAddress(addressList[0]);
     })();
   }, [window.ethereum]);
 
